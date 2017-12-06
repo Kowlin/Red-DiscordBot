@@ -6,6 +6,8 @@
  * e.g. in the definition `redbot.core.Config`, `redbot.core` is the
  * desclassname.
  */
-code.descclassname {
+
+/* code.descclassname {
     font-weight: normal !important;
-}
+ }
+*/
