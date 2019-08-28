@@ -11,7 +11,7 @@ jobs:
         python-version: [3.7]
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/setup-python
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Check python version
