@@ -12,13 +12,4 @@ jobs:
       with:
         python-version: '3.7'
         architecture: 'x64'
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Check python version
-      run: |
-        python --version
-        python3.7 --version
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - uses: Kowlin/ghactions-test
