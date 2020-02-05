@@ -24,15 +24,18 @@ jobs:
               friendly_name: Postgres
         fail-fast: false
       name: Tox - ${{ matrix.friendly_name }}
+      services:
+        postgresql:
+          image: postgres:10
+          ports:
+            - 5432:5432
+          env:
+            POSTGRES_DB: red_db
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_USER: postgres
+          if: matrix.tox_env == 'postgres'
       steps:
         - uses: actions/checkout@v2
-        - uses: harmon758/postgresql-action@v1
-          with:
-            postgresql version: "10"
-            postgresql db: red_db
-            postgresql user: postgres
-            postgresql password: postgres
-          if: matrix.tox_env == 'postgres'
         - name: Set up Python
           uses: actions/setup-python@v1
           with:
