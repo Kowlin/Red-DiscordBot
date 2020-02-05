@@ -29,9 +29,9 @@ jobs:
         - uses: harmon758/postgresql-action@v1
           with:
             postgresql version: "10"
-            postgres db: red_db
-            postgres user: postgres
-            posgres password: postgres
+            postgresql db: red_db
+            postgresql user: postgres
+            postgresql password: postgres
           if: matrix.tox_env == 'postgres'
         - name: Set up Python
           uses: actions/setup-python@v1
