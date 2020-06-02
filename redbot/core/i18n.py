@@ -177,6 +177,9 @@ class Translator(Callable[[str], str]):
         with respect to the current locale.
         """
         locale = get_locale()
+        if self.check_cache_for_locale(locale) is False:
+            self.load_translations()
+
         try:
             return self.translations[locale][untranslated]
         except KeyError:
