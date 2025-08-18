@@ -845,7 +845,10 @@ class CustomCommands(commands.Cog):
             first = objects[first]
         else:
             return raw_result
-        return str(getattr(first, second, raw_result))
+        formatted = str(getattr(first, second, raw_result))
+        if second == "display_name":
+            formatted = discord.utils.escape_mentions(formatted)
+        return formatted
 
     async def get_command_names(self, guild: discord.Guild) -> Set[str]:
         """Get all custom command names in a guild.
